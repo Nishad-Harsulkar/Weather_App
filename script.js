@@ -9,8 +9,9 @@ function getWeather() {
     return;
   }
 
-  const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=yes`;
-
+  // Use CORS proxy
+  const proxy = "https://cors-anywhere.herokuapp.com/";
+  const url = `${proxy}https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=yes`;
   fetch(url)
     .then(response => {
       if (!response.ok) {
